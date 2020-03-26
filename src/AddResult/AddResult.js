@@ -10,21 +10,26 @@ import styles from "./AddResult.module.scss";
 export const AddResult = ({ players }) => {
 	const [show, setShow] = useState(true);
 	const [result, setResult] = useState({
-		player1: "adik06",
-		player2: "Bartek182_POL",
+		player1: "",
+		player2: "",
 		match1: {
-			home: 0,
-			away: 0,
+			home: null,
+			away: null,
 		},
 		match2: {
-			home: 0,
-			away: 0,
+			home: null,
+			away: null,
 		},
 	});
 
 	const toggleShow = () => setShow(prev => !prev);
 
 	const handleAddResult = async () => {
+		const { player1, player2, match1, match2 } = result;
+		if (!(player1 && player2 && match1.home && match1.away && match2.home && match2.away)) {
+			return;
+		}
+
 		//send request
 		postAPI("sendResult", result)
 			.then(() => {

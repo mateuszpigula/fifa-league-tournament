@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { getAPI } from "api";
-import { Container, Row, Col, Ranking, AddResult, PlayerMatches } from "shared";
+import { Container, Ranking, AddResult, PlayerMatches } from "shared";
 import "./App.css";
 
 const App = () => {

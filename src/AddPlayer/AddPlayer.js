@@ -17,33 +17,6 @@ const AddPlayer = () => {
 		},
 	});
 
-	// useEffect(() => {
-	// 	const fetchData = () => {
-	// 		fetch("/.netlify/functions/productRead")
-	// 			.then(res => res.json())
-	// 			.then(response => {
-	// 				console.log("CONSOLE LOG @@@@@@@: Ranking -> response", response);
-	// 				console.log(response.msg);
-	// 				const newInputs = [];
-	// 				const newProducts = response.data;
-
-	// 				newProducts.forEach(product => {
-	// 					const productProps = this.setProductProps(product);
-	// 					newInputs.push(productProps);
-	// 				});
-
-	// 				setInputs(newInputs);
-	// 				setProducts(newProducts);
-
-	// 				console.log("Ranking -> newInputs", newInputs);
-	// 				console.log("Ranking -> newProducts", newProducts);
-	// 			})
-	// 			.catch(err => console.log("Error retrieving products: ", err));
-	// 	};
-
-	// 	fetchData();
-	// }, []);
-
 	const handleCreate = () => {
 		console.log("handleCreate -> player", player);
 
