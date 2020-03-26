@@ -1,5 +1,6 @@
 import React from "react";
 import { Table } from "shared";
+
 import styles from "./Ranking.module.scss";
 
 export const Ranking = ({ players }) => {
