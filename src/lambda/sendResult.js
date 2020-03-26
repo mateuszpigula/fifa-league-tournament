@@ -60,7 +60,7 @@ exports.handler = async (event, context) => {
 			{
 				stats: {
 					points: player1.stats.points + points.player1,
-					matches_count: player1.stats.matches_count + 1,
+					matches_count: player1.stats.matches_count + 2,
 				},
 			}
 		);
@@ -69,7 +69,7 @@ exports.handler = async (event, context) => {
 			{
 				stats: {
 					points: player2.stats.points + points.player2,
-					matches_count: player2.stats.matches_count + 1,
+					matches_count: player2.stats.matches_count + 2,
 				},
 			}
 		);

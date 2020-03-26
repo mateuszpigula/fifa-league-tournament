@@ -27,11 +27,10 @@ export const AddResult = ({ players }) => {
 	const handleAddResult = async () => {
 		//send request
 		postAPI("sendResult", result)
-			.then(response => {
-				console.log("handleCreate -> response", response);
+			.then(() => {
+				window.location.reload();
 			})
 			.catch(err => console.log("Product.create API error: ", err));
-		// handleClose();
 	};
 
 	const handleChange = e => {

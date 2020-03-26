@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { getAPI } from "api";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import { Container, Row, Col, Ranking, AddResult } from "shared";
+import { getAPI } from "api";
+import { Container, Row, Col, Ranking, AddResult, PlayerMatches } from "shared";
 import "./App.css";
 
 const App = () => {
@@ -17,15 +18,25 @@ const App = () => {
 	}, []);
 
 	return (
-		<Container className="App mt-2">
-			<Row>
-				<Col>
-					<AddResult players={players} />
-					<Ranking players={players} />
-					{/* <AddPlayer /> */}
-				</Col>
-			</Row>
-		</Container>
+		<Router>
+			<Container className="App mt-2">
+				<Switch>
+					<Route path={`/:playerId`}>
+						<PlayerMatches />
+					</Route>
+					<Route path="/">
+						<AddResult players={players} />
+						<Ranking players={players} />
+					</Route>
+				</Switch>
+				{/* <AddPlayer /> */}
+				{/* <Row>
+					<Col>
+					
+					</Col>
+				</Row> */}
+			</Container>
+		</Router>
 	);
 };
 

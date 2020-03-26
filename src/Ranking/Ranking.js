@@ -1,6 +1,7 @@
 import React from "react";
-import { Table } from "shared";
+import { Link } from "react-router-dom";
 
+import { Table } from "shared";
 import styles from "./Ranking.module.scss";
 
 export const Ranking = ({ players }) => {
@@ -21,7 +22,11 @@ export const Ranking = ({ players }) => {
 					return (
 						<tr key={player.psn}>
 							<td>{i + 1}</td>
-							<td>{player.name}</td>
+							<td>
+								<Link to={`/${player.psn}`} className={styles.link}>
+									{player.name}
+								</Link>
+							</td>
 							<td>
 								<img className={styles.logo} src={player.club.logo} alt={player.club.name} />
 								{player.club.name}
