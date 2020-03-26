@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import { Form, Button } from "react-bootstrap";
-import { postAPI } from "../api";
+import { postAPI } from "api";
 
 const AddPlayer = () => {
 	const [player, setPlayer] = useState({

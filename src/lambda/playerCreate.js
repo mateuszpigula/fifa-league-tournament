@@ -22,8 +22,6 @@ exports.handler = async (event, context) => {
 			data: player,
 		};
 
-		console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ exports.handler -> player", player);
-		// Use Product.Model to create a new product
 		await Player.create(player);
 
 		return {

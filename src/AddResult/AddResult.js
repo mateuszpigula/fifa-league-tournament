@@ -3,18 +3,20 @@ import Select from "react-select";
 
 import { Button, Form, Col } from "shared";
 import { handleChange as handleInputChange } from "utils/handlers";
+import { postAPI } from "api";
+
 import styles from "./AddResult.module.scss";
 
 export const AddResult = ({ players }) => {
 	const [show, setShow] = useState(true);
 	const [result, setResult] = useState({
-		player1: "",
-		player2: "",
-		match_1: {
+		player1: "adik06",
+		player2: "Bartek182_POL",
+		match1: {
 			home: 0,
 			away: 0,
 		},
-		match_2: {
+		match2: {
 			home: 0,
 			away: 0,
 		},
@@ -23,10 +25,13 @@ export const AddResult = ({ players }) => {
 	const toggleShow = () => setShow(prev => !prev);
 
 	const handleAddResult = async () => {
-		console.log("handleAddResult -> result", result);
 		//send request
+		postAPI("sendResult", result)
+			.then(response => {
+				console.log("handleCreate -> response", response);
+			})
+			.catch(err => console.log("Product.create API error: ", err));
 		// handleClose();
-		// window.location.reload(true);
 	};
 
 	const handleChange = e => {
@@ -72,12 +77,12 @@ export const AddResult = ({ players }) => {
 							<Col md="auto">Mecz 1:</Col>
 							<Col xs lg="auto">
 								<Form.Label>{result.player1}</Form.Label>
-								<Form.Control name="match_1.home" type="number" onChange={handleChange} />
+								<Form.Control name="match1.home" type="number" onChange={handleChange} />
 							</Col>
 							<span>-</span>
 							<Col xs lg="auto">
 								<Form.Label>{result.player2}</Form.Label>
-								<Form.Control name="match_1.away" type="number" onChange={handleChange} />
+								<Form.Control name="match1.away" type="number" onChange={handleChange} />
 							</Col>
 						</Form.Row>
 					</Form.Group>
@@ -87,12 +92,12 @@ export const AddResult = ({ players }) => {
 							<Col md="auto">Rewanż:</Col>
 							<Col xs lg="auto">
 								<Form.Label>{result.player1}</Form.Label>
-								<Form.Control name="match_2.home" type="number" onChange={handleChange} />
+								<Form.Control name="match2.home" type="number" onChange={handleChange} />
 							</Col>
 							<span>-</span>
 							<Col xs lg="auto">
 								<Form.Label>{result.player2}</Form.Label>
-								<Form.Control name="match_2.away" type="number" onChange={handleChange} />
+								<Form.Control name="match2.away" type="number" onChange={handleChange} />
 							</Col>
 						</Form.Row>
 					</Form.Group>
