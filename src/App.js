@@ -1,12 +1,20 @@
 import React from "react";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import AddPlayer from "./AddPlayer/AddPlayer";
 import Ranking from "./Ranking/Ranking";
+import { Container, Row, Col } from "shared";
 
 const App = () => {
 	return (
-		<div className="App">
-			<Ranking />
-		</div>
+		<Container className="App">
+			<Row>
+				<Col>
+					<Ranking />
+					{/* <AddPlayer /> */}
+				</Col>
+			</Row>
+		</Container>
 	);
 };
 

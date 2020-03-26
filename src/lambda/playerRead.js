@@ -4,25 +4,28 @@ import mongoose from "mongoose";
 import db from "./server";
 
 // Load the Product Model
-import Product from "./productModel";
+import Player from "./playerModel";
 
 exports.handler = async (event, context) => {
 	context.callbackWaitsForEmptyEventLoop = false;
 
 	try {
-		// Use Product.Model to find all products
-		const products = await Product.find();
+		const players = await Player.find();
+
 		const response = {
-			msg: "Products successfully found",
-			data: products,
+			msg: "Players successfully found",
+			data: players.sort((a, b) => a.psn.localeCompare(b.psn)),
 		};
 
 		return {
 			statusCode: 200,
+			headers: {
+				"Content-Type": "application/json",
+			},
 			body: JSON.stringify(response),
 		};
 	} catch (err) {
-		console.log(err); // output to netlify function log
+		// console.log(err); // output to netlify function log
 		return {
 			statusCode: 500,
 			body: JSON.stringify({ msg: err.message }),
