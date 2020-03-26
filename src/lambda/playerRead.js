@@ -11,10 +11,11 @@ exports.handler = async (event, context) => {
 
 	try {
 		const players = await Player.find();
+		players.sort((a, b) => a.psn.localeCompare(b.psn));
 
 		const response = {
 			msg: "Players successfully found",
-			data: players.sort((a, b) => a.psn.localeCompare(b.psn)),
+			data: players.sort((a, b) => a.stats.points - b.stats.points),
 		};
 
 		return {

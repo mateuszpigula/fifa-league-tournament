@@ -1,21 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { getAPI } from "../api";
+import React from "react";
 import { Table } from "shared";
-import styles from "./Ranking.module.css";
+import styles from "./Ranking.module.scss";
 
-const Ranking = () => {
-	const [players, setPlayers] = useState([]);
-	useEffect(() => {
-		getAPI("playerRead")
-			.then(res => res.json())
-			.then(res => {
-				setPlayers(res.data);
-				console.log("Ranking -> res.data", res.data);
-			});
-	}, []);
-
+export const Ranking = ({ players }) => {
 	return (
-		<Table striped bordered hover>
+		<Table striped bordered hover variant="dark" className={(styles.table, "mt-3")}>
 			<thead>
 				<tr>
 					<th>Imię i nazwisko</th>
@@ -42,5 +31,3 @@ const Ranking = () => {
 		</Table>
 	);
 };
-
-export default Ranking;
