@@ -1,0 +1,19 @@
+.form {
+	background: white;
+	padding: 2rem;
+	border-radius: 0.25rem;
+	margin: 0.5em 0;
+}
+.form-row {
+	display: flex;
+	align-items: flex-end;
+}
+
+.buttons {
+	display: flex;
+	justify-content: flex-end;
+
+	button {
+		margin-left: 0.25em;
+	}
+}
