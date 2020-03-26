@@ -17,7 +17,6 @@ export const PlayerMatches = () => {
 			.then(res => {
 				setPlayerDetails(res.data.player);
 				setPlayerMatchDetails(res.data.playerMatches);
-				console.log(res.data);
 				setLoading(false);
 			});
 	}, [playerId]);
