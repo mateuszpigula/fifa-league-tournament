@@ -58,19 +58,15 @@ exports.handler = async (event, context) => {
 		const player1Updated = await Player.updateOne(
 			{ psn: data.player1 },
 			{
-				stats: {
-					points: player1.stats.points + points.player1,
-					matches_count: player1.stats.matches_count + 2,
-				},
+				points: player1.points + points.player1,
+				matches_count: player1.matches_count + 2,
 			}
 		);
 		const player2Updated = await Player.updateOne(
 			{ psn: data.player2 },
 			{
-				stats: {
-					points: player2.stats.points + points.player2,
-					matches_count: player2.stats.matches_count + 2,
-				},
+				points: player2.points + points.player2,
+				matches_count: player2.matches_count + 2,
 			}
 		);
 		const response = {

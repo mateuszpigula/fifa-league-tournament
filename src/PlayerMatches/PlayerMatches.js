@@ -39,8 +39,8 @@ export const PlayerMatches = () => {
 					<h1>{playerDetails.name}</h1>
 					<p>psn: {playerDetails.psn}</p>
 					<p>
-						punkty: {playerDetails.stats.points} (w {playerDetails.stats.matches_count}
-						<span> {pluralization(playerDetails.stats.matches_count)}</span>)
+						punkty: {playerDetails.points} (w {playerDetails.matches_count}
+						<span> {pluralization(playerDetails.matches_count)}</span>)
 					</p>
 					<p>drużyna: {playerDetails.club.name}</p>
 				</Col>

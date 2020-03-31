@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { postAPI } from "api";
 
-const AddPlayer = () => {
+export const AddPlayer = () => {
 	const [player, setPlayer] = useState({
 		name: "",
 		psn: "",
@@ -51,10 +51,8 @@ const AddPlayer = () => {
 			<Form.Label>Logo:</Form.Label>
 			<Form.Control name="club.logo" type="text" onChange={handleChange} />
 			<Button variant="primary" onClick={handleCreate}>
-				Dodaj produkt
+				Dodaj gracza
 			</Button>
 		</Form>
 	);
 };
-
-export default AddPlayer;

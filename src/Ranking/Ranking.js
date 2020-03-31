@@ -12,8 +12,9 @@ export const Ranking = ({ players }) => {
 					<th>Lp.</th>
 					<th>Imię i nazwisko</th>
 					<th>Klub</th>
-					<th>Mecze</th>
-					<th>Punkty</th>
+					<th>M</th>
+					<th>P</th>
+					<th>B</th>
 					<th>PSN</th>
 				</tr>
 			</thead>
@@ -28,11 +29,13 @@ export const Ranking = ({ players }) => {
 								</Link>
 							</td>
 							<td>
-								<img className={styles.logo} src={player.club.logo} alt={player.club.name} />
-								{player.club.name}
+								<img className={styles.logo} src={player.club.logo} alt={player.club.name} title={player.club.name} />
 							</td>
-							<td>{player.stats.matches_count}</td>
-							<td>{player.stats.points}</td>
+							<td>{player.matches_count}</td>
+							<td>{player.points}</td>
+							<td className={styles.noWrap}>
+								{player.goals_scored} : {player.goals_conceded}
+							</td>
 							<td>{player.psn}</td>
 						</tr>
 					);
