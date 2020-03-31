@@ -15,7 +15,7 @@ exports.handler = async (event, context) => {
 
 		const response = {
 			msg: "Players successfully found",
-			data: players.sort((a, b) => b.stats.points - a.stats.points),
+			data: players.sort((a, b) => b.points - a.points),
 		};
 
 		return {

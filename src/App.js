@@ -3,7 +3,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { getAPI } from "api";
-import { Container, Ranking, AddResult, PlayerMatches } from "shared";
+import { AddPlayer, Container, Ranking, AddResult, PlayerMatches } from "shared";
 import "./App.css";
 
 const App = () => {
@@ -25,16 +25,10 @@ const App = () => {
 						<PlayerMatches />
 					</Route>
 					<Route path="/">
-						<AddResult players={players} />
+						{/* <AddResult players={players} /> */}
 						<Ranking players={players} />
 					</Route>
 				</Switch>
-				{/* <AddPlayer /> */}
-				{/* <Row>
-					<Col>
-					
-					</Col>
-				</Row> */}
 			</Container>
 		</Router>
 	);

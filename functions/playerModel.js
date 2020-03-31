@@ -22,15 +22,21 @@ const playerSchema = new mongoose.Schema({
 			default: "",
 		},
 	},
-	stats: {
-		points: {
-			type: Number,
-			default: 0,
-		},
-		matches_count: {
-			type: Number,
-			default: 0,
-		},
+	points: {
+		type: Number,
+		default: 0,
+	},
+	matches_count: {
+		type: Number,
+		default: 0,
+	},
+	goals_scored: {
+		type: Number,
+		default: 0,
+	},
+	goals_conceded: {
+		type: Number,
+		default: 0,
 	},
 });
 
