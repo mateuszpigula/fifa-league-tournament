@@ -14,10 +14,35 @@ exports.handler = async (event, context) => {
 		const playerPsn = event.queryStringParameters.id;
 		const player = await Player.findOne({ psn: playerPsn });
 		const playerMatches = await Match.find({ $or: [{ player1: playerPsn }, { player2: playerPsn }] });
+		let goalsScored = 0;
+		let goalsConceded = 0;
+		playerMatches.map(match => {
+			const homeOrAway = playerPsn === match.player1 ? "home" : "away";
+			const opposite = homeOrAway === "home" ? "away" : "home";
+
+			goalsScored += match.match1[homeOrAway] + match.match2[homeOrAway];
+			goalsConceded += match.match1[opposite] + match.match2[opposite];
+			return match;
+		});
+
+		await Player.updateOne(
+			{ psn: playerPsn },
+			{
+				goals_scored: goalsScored,
+				goals_conceded: goalsConceded,
+			}
+		);
 
 		const response = {
 			msg: "Successfully got player info",
-			data: { player, playerMatches },
+			data: {
+				player,
+				playerMatches,
+				goals: {
+					goalsScored,
+					goalsConceded,
+				},
+			},
 		};
 		return {
 			statusCode: 200,

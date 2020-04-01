@@ -7,8 +7,21 @@ import { postAPI } from "api";
 
 import styles from "./AddResult.module.scss";
 
+const properScore = score => score >= 0;
+const isProperResult = result => {
+	const { player1, player2, match1, match2 } = result;
+	return !!(
+		player1 &&
+		player2 &&
+		properScore(match1.home) &&
+		properScore(match1.away) &&
+		properScore(match2.home) &&
+		properScore(match2.away)
+	);
+};
+
 export const AddResult = ({ players }) => {
-	const [show, setShow] = useState(true);
+	const [textStream, setTextStream] = useState("");
 	const [result, setResult] = useState({
 		player1: "",
 		player2: "",
@@ -22,24 +35,67 @@ export const AddResult = ({ players }) => {
 		},
 	});
 
-	const toggleShow = () => setShow(prev => !prev);
+	const handleAddResult = () => {
+		const getTextStreamElems = () => {
+			if (textStream) {
+				const arrayOfMatches = textStream.split("\n");
+				return arrayOfMatches
+					.map(match => {
+						const elems = match.split(" ");
 
-	const handleAddResult = async () => {
-		const { player1, player2, match1, match2 } = result;
-		if (!(player1 && player2 && match1.home && match1.away && match2.home && match2.away)) {
-			return;
+						if (elems.length < 8) {
+							return null;
+						}
+
+						const player1 = elems.slice(0, 2).join(" ");
+						const player2 = elems.slice(3, 5).join(" ");
+						const match1 = elems.slice(5, 6)[0].split(":");
+						const match2 = elems.slice(7, 8)[0].split(":");
+
+						const player1_psn = players.find(pl => pl.name === player1).psn;
+						const player2_psn = players.find(pl => pl.name === player2).psn;
+						const body = {
+							player1: player1_psn,
+							player2: player2_psn,
+							match1: {
+								home: +match1[0],
+								away: +match1[1],
+							},
+							match2: {
+								home: +match2[0],
+								away: +match2[1],
+							},
+						};
+
+						return body;
+					})
+					.filter(match => match !== null);
+			}
+		};
+		const matches = getTextStreamElems();
+		if (matches.length > 0) {
+			matches.map(match => {
+				if (!isProperResult(match)) {
+					console.log("data not complete");
+					return match;
+				}
+
+				// send request
+				postAPI("sendResult", match)
+					.then(res => {
+						console.log("handleAddResult -> res", res);
+					})
+					.catch(err => console.log("Product.create API error: ", err));
+			});
 		}
-
-		//send request
-		postAPI("sendResult", result)
-			.then(() => {
-				window.location.reload();
-			})
-			.catch(err => console.log("Product.create API error: ", err));
 	};
 
 	const handleChange = e => {
 		handleInputChange(e, setResult);
+	};
+
+	const handleTextStreamChange = e => {
+		setTextStream(e.target.value);
 	};
 
 	const handlePlayerChange = (val, e) => {
@@ -47,77 +103,87 @@ export const AddResult = ({ players }) => {
 	};
 	const options = players.map(player => ({
 		value: player.psn,
-		label: player.psn,
+		label: player.name,
 	}));
 
 	return (
 		<>
-			<Button onClick={toggleShow}>Dodaj wynik</Button>
-			{show && (
-				<Form className={styles.form}>
-					<Form.Group>
-						<Form.Row>
-							<Col>
-								<Form.Label>Gracz 1:</Form.Label>
-								<Select
-									name="player1"
-									options={options.filter(p => p.value !== result.player2)}
-									onChange={handlePlayerChange}
-								/>
-							</Col>
-							<Col>
-								<Form.Label>Gracz 2:</Form.Label>
-								<Select
-									name="player2"
-									options={options.filter(p => p.value !== result.player1)}
-									onChange={handlePlayerChange}
-								/>
-							</Col>
-						</Form.Row>
-					</Form.Group>
+			<Form className={styles.form}>
+				<Form.Group>
+					<Form.Row>
+						<Col>
+							<Form.Label>Gracz 1:</Form.Label>
+							<Select
+								name="player1"
+								options={options.filter(p => p.value !== result.player2)}
+								onChange={handlePlayerChange}
+							/>
+						</Col>
+						<Col>
+							<Form.Label>Gracz 2:</Form.Label>
+							<Select
+								name="player2"
+								options={options.filter(p => p.value !== result.player1)}
+								onChange={handlePlayerChange}
+							/>
+						</Col>
+					</Form.Row>
+				</Form.Group>
 
-					<Form.Group>
-						<Form.Row className={styles["form-row"]}>
-							<Col md="auto">Mecz 1:</Col>
-							<Col xs lg="auto">
-								<Form.Label>{result.player1}</Form.Label>
-								<Form.Control name="match1.home" type="number" onChange={handleChange} />
-							</Col>
-							<span>-</span>
-							<Col xs lg="auto">
-								<Form.Label>{result.player2}</Form.Label>
-								<Form.Control name="match1.away" type="number" onChange={handleChange} />
-							</Col>
-						</Form.Row>
-					</Form.Group>
+				<Form.Group>
+					<Form.Row className={styles["form-row"]}>
+						<Col md="auto">Mecz 1:</Col>
+						<Col xs lg="auto">
+							<Form.Label>{result.player1}</Form.Label>
+							<Form.Control name="match1.home" type="number" onChange={handleChange} />
+						</Col>
+						<span>-</span>
+						<Col xs lg="auto">
+							<Form.Label>{result.player2}</Form.Label>
+							<Form.Control name="match1.away" type="number" onChange={handleChange} />
+						</Col>
+					</Form.Row>
+				</Form.Group>
 
-					<Form.Group>
-						<Form.Row className={styles["form-row"]}>
-							<Col md="auto">Rewanż:</Col>
-							<Col xs lg="auto">
-								<Form.Label>{result.player1}</Form.Label>
-								<Form.Control name="match2.home" type="number" onChange={handleChange} />
-							</Col>
-							<span>-</span>
-							<Col xs lg="auto">
-								<Form.Label>{result.player2}</Form.Label>
-								<Form.Control name="match2.away" type="number" onChange={handleChange} />
-							</Col>
-						</Form.Row>
-					</Form.Group>
+				<Form.Group>
+					<Form.Row className={styles["form-row"]}>
+						<Col md="auto">Rewanż:</Col>
+						<Col xs lg="auto">
+							<Form.Label>{result.player1}</Form.Label>
+							<Form.Control name="match2.home" type="number" onChange={handleChange} />
+						</Col>
+						<span>-</span>
+						<Col xs lg="auto">
+							<Form.Label>{result.player2}</Form.Label>
+							<Form.Control name="match2.away" type="number" onChange={handleChange} />
+						</Col>
+					</Form.Row>
+				</Form.Group>
 
-					<Form.Group>
-						<Form.Row className={styles.buttons}>
-							<Button variant="primary" onClick={toggleShow}>
-								Anuluj
-							</Button>
-							<Button variant="primary" onClick={handleAddResult}>
-								Dodaj wyniki
-							</Button>
-						</Form.Row>
-					</Form.Group>
-				</Form>
-			)}
+				<Form.Group>
+					<Form.Row className={styles["form-row"]}>
+						<Col md="auto">Wynik tekstowy:</Col>
+						<Col xs="9">
+							<Form.Control as="textarea" rows="3" name="textStream" onChange={handleTextStreamChange} />
+						</Col>
+					</Form.Row>
+				</Form.Group>
+
+				<Form.Group>
+					<Form.Row className={styles.buttons}>
+						<Button variant="primary" onClick={handleAddResult}>
+							Dodaj wyniki
+						</Button>
+					</Form.Row>
+				</Form.Group>
+			</Form>
+			<ul>
+				{players.map(player => (
+					<li style={{ color: "white" }} key={player.psn}>
+						{player.psn} - {player.name}
+					</li>
+				))}
+			</ul>
 		</>
 	);
 };
