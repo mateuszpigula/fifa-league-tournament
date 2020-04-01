@@ -6,6 +6,7 @@ const dbUrl = process.env.DB_URL;
 const dbOptions = {
 	useNewUrlParser: true,
 	useFindAndModify: false,
+	useUnifiedTopology: true,
 };
 
 // Set DB from mongoose connection

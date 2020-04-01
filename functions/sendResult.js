@@ -43,9 +43,27 @@ exports.handler = async (event, context) => {
 	try {
 		const data = JSON.parse(event.body);
 		const id = mongoose.Types.ObjectId();
-		const points = assignPoints(data);
+
 		const player1 = await Player.findOne({ psn: data.player1 });
 		const player2 = await Player.findOne({ psn: data.player2 });
+		const playersMatch = await Match.find({
+			$and: [
+				{ $or: [{ player1: player1.psn }, { player2: player1.psn }] },
+				{ $or: [{ player1: player2.psn }, { player2: player2.psn }] },
+			],
+		});
+
+		if (playersMatch.length > 0) {
+			const response = {
+				msg: "Result between these players already exists!",
+				data: { playersMatch },
+			};
+			return {
+				statusCode: 400,
+				body: JSON.stringify(response),
+			};
+		}
+		const points = assignPoints(data);
 
 		const match = {
 			...data,
@@ -60,6 +78,8 @@ exports.handler = async (event, context) => {
 			{
 				points: player1.points + points.player1,
 				matches_count: player1.matches_count + 2,
+				goals_scored: player1.goals_scored + match.match1.home + match.match2.home,
+				goals_conceded: player1.goals_conceded + match.match1.away + match.match2.away,
 			}
 		);
 		const player2Updated = await Player.updateOne(
@@ -67,6 +87,8 @@ exports.handler = async (event, context) => {
 			{
 				points: player2.points + points.player2,
 				matches_count: player2.matches_count + 2,
+				goals_scored: player2.goals_scored + match.match1.away + match.match2.away,
+				goals_conceded: player2.goals_conceded + match.match1.home + match.match2.home,
 			}
 		);
 		const response = {

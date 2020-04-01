@@ -5,17 +5,38 @@ import db from "./server";
 
 // Load the Product Model
 import Player from "./playerModel";
+import Match from "./matchModel";
 
 exports.handler = async (event, context) => {
 	context.callbackWaitsForEmptyEventLoop = false;
 
 	try {
 		const players = await Player.find();
-		players.sort((a, b) => a.psn.localeCompare(b.psn));
+		const samePoints = {};
+		players.sort((a, b) => b.points - a.points);
+		players.map(player => {
+			samePoints[player.points] = samePoints[player.points] ? [...samePoints[player.points], player] : [player];
+			return player;
+		});
 
+		// const a = { psn: "Kapi2011Kato" };
+		// const b = { psn: "sikur30" };
+		// const playersMatch = await Match.find({
+		// 	$and: [{ $or: [{ player1: a.psn }, { player2: a.psn }] }, { $or: [{ player1: b.psn }, { player2: b.psn }] }],
+		// });
+		// console.log("exports.handler -> playersMatch", playersMatch);
 		const response = {
 			msg: "Players successfully found",
-			data: players.sort((a, b) => b.points - a.points),
+			data: players.sort((a, b) => {
+				if (b.points !== a.points) {
+					return b.points - a.points;
+				}
+				const a_balance = a.goals_scored - a.goals_conceded;
+				const b_balance = b.goals_scored - b.goals_conceded;
+
+				return b_balance - a_balance;
+			}),
+			sorted: samePoints,
 		};
 
 		return {
