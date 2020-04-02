@@ -18,13 +18,7 @@ export const AddPlayer = () => {
 	});
 
 	const handleCreate = () => {
-		console.log("handleCreate -> player", player);
-
-		postAPI("playerCreate", player)
-			.then(response => {
-				console.log("handleCreate -> response", response);
-			})
-			.catch(err => console.log("Product.create API error: ", err));
+		postAPI("playerCreate", player).catch(err => console.log("Product.create API error: ", err));
 	};
 
 	const handleChange = e => {

@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { getAPI } from "api";
-import { AddPlayer, Container, Ranking, AddResult, PlayerMatches, Button } from "shared";
+import { LoginContextProvider } from "contexts";
+import { Container, Ranking, AddResult, PlayerMatches, LoginForm } from "shared";
+import { Header } from "./components/Header/Header";
 import "./App.css";
 
 const App = () => {
@@ -19,25 +21,25 @@ const App = () => {
 
 	return (
 		<Router>
-			<Container className="App mt-2">
-				<Button as={Link} to="/" className="mr-3">
-					Home
-				</Button>
-				<Button as={Link} to="/add-result-admin">
-					Add Result
-				</Button>
-				<Switch>
-					<Route path="/add-result-admin">
-						<AddResult players={players} />
-					</Route>
-					<Route path="/:playerId">
-						<PlayerMatches />
-					</Route>
-					<Route path="/">
-						<Ranking players={players} />
-					</Route>
-				</Switch>
-			</Container>
+			<LoginContextProvider>
+				<Container className="App mt-2">
+					<Header />
+					<Switch>
+						<Route path="/add-result">
+							<AddResult players={players} />
+						</Route>
+						<Route path="/login">
+							<LoginForm />
+						</Route>
+						<Route path="/:playerId">
+							<PlayerMatches />
+						</Route>
+						<Route path="/">
+							<Ranking players={players} />
+						</Route>
+					</Switch>
+				</Container>
+			</LoginContextProvider>
 		</Router>
 	);
 };
