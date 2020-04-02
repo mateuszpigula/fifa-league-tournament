@@ -15,7 +15,6 @@ export const PlayerMatches = () => {
 		getAPI(`getPlayerDetails?id=${playerId}`)
 			.then(res => res.json())
 			.then(res => {
-				console.log("PlayerMatches -> res", res);
 				setPlayerDetails(res.data.player);
 				setPlayerMatchDetails(res.data.playerMatches);
 				setLoading(false);

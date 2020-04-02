@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Select from "react-select";
 
+import { postAPI } from "api";
 import { Button, Form, Col } from "shared";
 import { handleChange as handleInputChange } from "utils/handlers";
-import { postAPI } from "api";
+import { LoginContext } from "contexts";
 
 import styles from "./AddResult.module.scss";
 
@@ -21,6 +22,7 @@ const isProperResult = result => {
 };
 
 export const AddResult = ({ players }) => {
+	const [isLoggedIn] = useContext(LoginContext);
 	const [textStream, setTextStream] = useState("");
 	const [result, setResult] = useState({
 		player1: "",
@@ -74,18 +76,13 @@ export const AddResult = ({ players }) => {
 		};
 		const matches = getTextStreamElems();
 		if (matches.length > 0) {
-			matches.map(match => {
+			matches.forEach(match => {
 				if (!isProperResult(match)) {
 					console.log("data not complete");
-					return match;
 				}
 
 				// send request
-				postAPI("sendResult", match)
-					.then(res => {
-						console.log("handleAddResult -> res", res);
-					})
-					.catch(err => console.log("Product.create API error: ", err));
+				postAPI("sendResult", match).catch(err => console.log("Product.create API error: ", err));
 			});
 		}
 	};
@@ -105,6 +102,10 @@ export const AddResult = ({ players }) => {
 		value: player.psn,
 		label: player.name,
 	}));
+
+	if (!isLoggedIn) {
+		return <h1>Nie jesteś zalogowany!</h1>;
+	}
 
 	return (
 		<>
