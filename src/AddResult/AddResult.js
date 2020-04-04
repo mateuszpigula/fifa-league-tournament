@@ -8,8 +8,8 @@ import { LoginContext } from "contexts";
 
 import styles from "./AddResult.module.scss";
 
-const properScore = score => score >= 0;
-const isProperResult = result => {
+const properScore = (score) => score >= 0;
+const isProperResult = (result) => {
 	const { player1, player2, match1, match2 } = result;
 	return !!(
 		player1 &&
@@ -42,7 +42,7 @@ export const AddResult = ({ players }) => {
 			if (textStream) {
 				const arrayOfMatches = textStream.split("\n");
 				return arrayOfMatches
-					.map(match => {
+					.map((match) => {
 						const elems = match.split(" ");
 
 						if (elems.length < 8) {
@@ -54,8 +54,20 @@ export const AddResult = ({ players }) => {
 						const match1 = elems.slice(5, 6)[0].split(":");
 						const match2 = elems.slice(7, 8)[0].split(":");
 
-						const player1_psn = players.find(pl => pl.name === player1).psn;
-						const player2_psn = players.find(pl => pl.name === player2).psn;
+						const p1 = players.find((pl) => pl.name === player1);
+						const p2 = players.find((pl) => pl.name === player2);
+						if (!p1) {
+							console.log("Player not found", player1);
+							return null;
+						}
+						if (!p2) {
+							console.log("Player not found", player2);
+							return null;
+						}
+
+						const player1_psn = p1.psn;
+						const player2_psn = p2.psn;
+
 						const body = {
 							player1: player1_psn,
 							player2: player2_psn,
@@ -71,34 +83,38 @@ export const AddResult = ({ players }) => {
 
 						return body;
 					})
-					.filter(match => match !== null);
+					.filter((match) => match !== null);
 			}
 		};
 		const matches = getTextStreamElems();
 		if (matches.length > 0) {
-			matches.forEach(match => {
+			matches.forEach((match) => {
 				if (!isProperResult(match)) {
 					console.log("data not complete");
 				}
 
 				// send request
-				postAPI("sendResult", match).catch(err => console.log("Product.create API error: ", err));
+				postAPI("sendResult", match)
+					.then((res) => {
+						console.log("handleAddResult -> res", res);
+					})
+					.catch((err) => console.log("Product.create API error: ", err));
 			});
 		}
 	};
 
-	const handleChange = e => {
+	const handleChange = (e) => {
 		handleInputChange(e, setResult);
 	};
 
-	const handleTextStreamChange = e => {
+	const handleTextStreamChange = (e) => {
 		setTextStream(e.target.value);
 	};
 
 	const handlePlayerChange = (val, e) => {
-		setResult(prevState => ({ ...prevState, [e.name]: val.value }));
+		setResult((prevState) => ({ ...prevState, [e.name]: val.value }));
 	};
-	const options = players.map(player => ({
+	const options = players.map((player) => ({
 		value: player.psn,
 		label: player.name,
 	}));
@@ -116,7 +132,7 @@ export const AddResult = ({ players }) => {
 							<Form.Label>Gracz 1:</Form.Label>
 							<Select
 								name="player1"
-								options={options.filter(p => p.value !== result.player2)}
+								options={options.filter((p) => p.value !== result.player2)}
 								onChange={handlePlayerChange}
 							/>
 						</Col>
@@ -124,7 +140,7 @@ export const AddResult = ({ players }) => {
 							<Form.Label>Gracz 2:</Form.Label>
 							<Select
 								name="player2"
-								options={options.filter(p => p.value !== result.player1)}
+								options={options.filter((p) => p.value !== result.player1)}
 								onChange={handlePlayerChange}
 							/>
 						</Col>
@@ -179,7 +195,7 @@ export const AddResult = ({ players }) => {
 				</Form.Group>
 			</Form>
 			<ul>
-				{players.map(player => (
+				{players.map((player) => (
 					<li style={{ color: "white" }} key={player.psn}>
 						{player.psn} - {player.name}
 					</li>

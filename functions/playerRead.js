@@ -14,8 +14,8 @@ exports.handler = async (event, context) => {
 		const players = await Player.find();
 		const samePoints = {};
 		players.sort((a, b) => b.points - a.points);
-		players.map(player => {
-			samePoints[player.points] = samePoints[player.points] ? [...samePoints[player.points], player] : [player];
+		players.map((player) => {
+			samePoints[player.points] = samePoints[player.points] ? [...samePoints[player.points], player.psn] : [player.psn];
 			return player;
 		});
 

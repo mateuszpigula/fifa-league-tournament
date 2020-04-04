@@ -15,6 +15,7 @@ const App = () => {
 		getAPI("playerRead")
 			.then(res => res.json())
 			.then(res => {
+				console.log("App -> res", res);
 				setPlayers(res.data);
 			});
 	}, []);
