@@ -38,6 +38,18 @@ const playerSchema = new mongoose.Schema({
 		type: Number,
 		default: 0,
 	},
+	wins: {
+		type: Number,
+		default: 0,
+	},
+	draws: {
+		type: Number,
+		default: 0,
+	},
+	loses: {
+		type: Number,
+		default: 0,
+	},
 });
 
 module.exports = mongoose.models.player || mongoose.model("player", playerSchema);

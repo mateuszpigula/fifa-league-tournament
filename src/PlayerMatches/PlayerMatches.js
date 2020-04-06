@@ -19,6 +19,7 @@ export const PlayerMatches = () => {
 				setPlayerDetails(res.data.player);
 				setPlayerMatchDetails(res.data.playerMatches);
 				setLoading(false);
+				console.log("PlayerMatches -> res", res.data);
 			});
 	}, [playerId]);
 
@@ -57,7 +58,7 @@ export const PlayerMatches = () => {
 					{playerMatchDetails.map((match) => {
 						return (
 							<Row key={match._id} className={styles.matchRow}>
-								<Col as={Link} to={`/${match.player1}`} className={match.player1 === playerId && styles.active}>
+								<Col as={Link} to={`/${match.player1}`}>
 									{match.player1}
 								</Col>
 								<Col>
@@ -68,7 +69,7 @@ export const PlayerMatches = () => {
 										{match.match2.home} - {match.match2.away}
 									</Row>
 								</Col>
-								<Col as={Link} to={`/${match.player2}`} className={match.player2 === playerId && styles.active}>
+								<Col as={Link} to={`/${match.player2}`}>
 									{match.player2}
 								</Col>
 							</Row>

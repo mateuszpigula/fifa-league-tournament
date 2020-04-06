@@ -13,8 +13,11 @@ export const Ranking = ({ players }) => {
 					<th>Imię i nazwisko</th>
 					<th>Klub</th>
 					<th>M</th>
+					<th>W</th>
+					<th>R</th>
 					<th>P</th>
 					<th>B</th>
+					<th>P</th>
 					<th>PSN</th>
 				</tr>
 			</thead>
@@ -32,10 +35,13 @@ export const Ranking = ({ players }) => {
 								<img className={styles.logo} src={player.club.logo} alt={player.club.name} title={player.club.name} />
 							</td>
 							<td>{player.matches_count}</td>
-							<td>{player.points}</td>
+							<td>{player.wins}</td>
+							<td>{player.draws}</td>
+							<td>{player.loses}</td>
 							<td className={styles.noWrap}>
 								{player.goals_scored} : {player.goals_conceded}
 							</td>
+							<td>{player.points}</td>
 							<td>{player.psn}</td>
 						</tr>
 					);

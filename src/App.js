@@ -13,8 +13,8 @@ const App = () => {
 
 	useEffect(() => {
 		getAPI("playerRead")
-			.then(res => res.json())
-			.then(res => {
+			.then((res) => res.json())
+			.then((res) => {
 				console.log("App -> res", res);
 				setPlayers(res.data);
 			});
