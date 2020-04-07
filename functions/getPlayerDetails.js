@@ -62,7 +62,7 @@ exports.handler = async (event, context) => {
 			body: JSON.stringify(response),
 		};
 	} catch (err) {
-		// console.log(err); // output to netlify function log
+		console.log(err); // output to netlify function log
 		return {
 			statusCode: 500,
 			body: JSON.stringify({ msg: err.message }),

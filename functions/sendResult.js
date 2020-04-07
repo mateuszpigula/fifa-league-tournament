@@ -83,9 +83,9 @@ exports.handler = async (event, context) => {
 				matches_count: player1.matches_count + 2,
 				goals_scored: player1.goals_scored + match.match1.home + match.match2.home,
 				goals_conceded: player1.goals_conceded + match.match1.away + match.match2.away,
-				wins: results.home,
-				draws: results.draw,
-				loses: results.away,
+				wins: player1.wins + results.home,
+				draws: player1.draws + results.draw,
+				loses: player1.loses + results.away,
 			}
 		);
 		const player2Updated = await Player.updateOne(
@@ -95,9 +95,9 @@ exports.handler = async (event, context) => {
 				matches_count: player2.matches_count + 2,
 				goals_scored: player2.goals_scored + match.match1.away + match.match2.away,
 				goals_conceded: player2.goals_conceded + match.match1.home + match.match2.home,
-				wins: results.away,
-				draws: results.draw,
-				loses: results.home,
+				wins: player2.wins + results.away,
+				draws: player2.draws + results.draw,
+				loses: player2.loses + results.home,
 			}
 		);
 		const response = {
