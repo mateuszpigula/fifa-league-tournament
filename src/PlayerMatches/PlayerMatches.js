@@ -6,7 +6,7 @@ import { Row, Col } from "shared";
 import { getAPI } from "api";
 import styles from "./PlayerMatches.module.scss";
 
-export const PlayerMatches = () => {
+export const PlayerMatches = ({ players }) => {
 	const [loading, setLoading] = useState(true);
 	const [playerDetails, setPlayerDetails] = useState({});
 	const [playerMatchDetails, setPlayerMatchDetails] = useState([]);
@@ -77,6 +77,27 @@ export const PlayerMatches = () => {
 					})}
 				</div>
 			)}
+			{players.map((player) => {
+				const matchWithThatPlayer = playerMatchDetails.find((match) => {
+					return match.player1 === player.psn || match.player2 === player.psn;
+				});
+
+				if (!matchWithThatPlayer) {
+					return (
+						<Row key={player.psn} className={styles.matchRow}>
+							{
+								<>
+									<Col>{playerId}</Col>
+									<Col>-</Col>
+									<Col as={Link} to={`/${player.psn}`}>
+										{player.psn}
+									</Col>
+								</>
+							}
+						</Row>
+					);
+				}
+			})}
 		</div>
 	);
 };

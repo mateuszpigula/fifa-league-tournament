@@ -33,7 +33,7 @@ const App = () => {
 							<LoginForm />
 						</Route>
 						<Route path="/:playerId">
-							<PlayerMatches />
+							<PlayerMatches players={players} />
 						</Route>
 						<Route path="/">
 							<Ranking players={players} />
