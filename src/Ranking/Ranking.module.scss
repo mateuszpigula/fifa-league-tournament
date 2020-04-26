@@ -1,7 +1,7 @@
 .logo {
-	height: 15px;
+	height: 25px;
 	object-fit: contain;
-	margin-right: 0.5em;
+	// margin-right: 0.5em;
 }
 
 .table {
@@ -19,4 +19,9 @@
 
 .noWrap {
 	white-space: nowrap;
+}
+
+.logoBackground {
+	vertical-align: middle !important;
+	text-align: center;
 }

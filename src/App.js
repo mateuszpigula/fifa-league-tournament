@@ -4,8 +4,9 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { getAPI } from "api";
 import { LoginContextProvider } from "contexts";
-import { Container, Ranking, AddResult, PlayerMatches, LoginForm } from "shared";
+import { Container, Ranking, AddResult, PlayerMatches, LoginForm, Schedule } from "shared";
 import { Header } from "./components/Header/Header";
+import { setPlayersData } from "utils/player";
 import "./App.css";
 
 const App = () => {
@@ -17,6 +18,7 @@ const App = () => {
 			.then((res) => {
 				console.log("App -> res", res);
 				setPlayers(res.data);
+				setPlayersData(res.data);
 			});
 	}, []);
 
@@ -28,6 +30,9 @@ const App = () => {
 					<Switch>
 						<Route path="/add-result">
 							<AddResult players={players} />
+						</Route>
+						<Route path="/schedule">
+							<Schedule />
 						</Route>
 						<Route path="/login">
 							<LoginForm />

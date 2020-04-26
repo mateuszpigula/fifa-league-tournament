@@ -6,7 +6,7 @@ import db from "./server";
 // Load the Product Model
 import Player from "./playerModel";
 import Match from "./matchModel";
-import { matchesResult } from "../src/utils/match";
+import { matchResult } from "../src/utils/match";
 
 exports.handler = async (event, context) => {
 	context.callbackWaitsForEmptyEventLoop = false;
@@ -21,19 +21,17 @@ exports.handler = async (event, context) => {
 			draws = 0,
 			loses = 0;
 
-		playerMatches.map((match) => {
-			const { match1, match2, player1 } = match;
+		playerMatches.forEach((match) => {
+			const { player1 } = match;
 			const homeOrAway = playerPsn === player1 ? "home" : "away";
 			const opposite = homeOrAway === "home" ? "away" : "home";
-			const results = matchesResult([match1, match2]);
+			const results = matchResult(match);
 
 			wins += results[homeOrAway];
 			draws += results.draw;
 			loses += results[opposite];
-			goalsScored += match1[homeOrAway] + match2[homeOrAway];
-			goalsConceded += match1[opposite] + match2[opposite];
-
-			return match;
+			goalsScored += match[homeOrAway];
+			goalsConceded += match[opposite];
 		});
 
 		await Player.updateOne(

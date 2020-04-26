@@ -17,3 +17,11 @@
 		margin-left: 0.25em;
 	}
 }
+
+.name {
+	cursor: pointer;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}

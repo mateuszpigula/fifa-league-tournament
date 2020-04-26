@@ -5,7 +5,6 @@ import db from "./server";
 
 // Load the Product Model
 import Player from "./playerModel";
-import Match from "./matchModel";
 
 exports.handler = async (event, context) => {
 	context.callbackWaitsForEmptyEventLoop = false;
@@ -19,12 +18,6 @@ exports.handler = async (event, context) => {
 			return player;
 		});
 
-		// const a = { psn: "Kapi2011Kato" };
-		// const b = { psn: "sikur30" };
-		// const playersMatch = await Match.find({
-		// 	$and: [{ $or: [{ player1: a.psn }, { player2: a.psn }] }, { $or: [{ player1: b.psn }, { player2: b.psn }] }],
-		// });
-		// console.log("exports.handler -> playersMatch", playersMatch);
 		const response = {
 			msg: "Players successfully found",
 			data: players.sort((a, b) => {

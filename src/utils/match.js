@@ -1,4 +1,4 @@
-const matchResult = (match) => {
+export const matchResult = (match) => {
 	let home = 0,
 		draw = 0,
 		away = 0;
@@ -15,18 +15,5 @@ const matchResult = (match) => {
 		home,
 		draw,
 		away,
-	};
-};
-
-export const matchesResult = (matches) => {
-	const [match1, match2] = matches;
-
-	const m1res = matchResult(match1);
-	const m2res = matchResult(match2);
-
-	return {
-		home: m1res.home + m2res.home,
-		draw: m1res.draw + m2res.draw,
-		away: m1res.away + m2res.away,
 	};
 };

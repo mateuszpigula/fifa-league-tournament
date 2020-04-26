@@ -1,0 +1,948 @@
+[
+  {
+    "_id": {
+      "$oid": "5e7c559c984866aeb112514e"
+    },
+    "club": {
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2d/SSC_Neapel.svg/1200px-SSC_Neapel.svg.png",
+      "name": "SSC Napoli"
+    },
+    "stats": {
+      "matches_count": {
+        "$numberInt": "0"
+      },
+      "points": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Mateusz Piguła",
+    "psn": "piggykce",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c56df984866aeb112514f"
+    },
+    "club": {
+      "logo": "https://lh3.googleusercontent.com/proxy/iyeck1Pf52FI5_EGcPHIiBlo_MJE1dYC3MNYbbZgBKth7OHqlEKzlnV13_S5h5WcQZrceCn8YND3O6wbgCtJxFNb3TOW0gLaZkuhrICZE4EFiokhsQhg",
+      "name": "Brazylia"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Adrian Hachuła",
+    "psn": "adik06",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c56f3984866aeb1125150"
+    },
+    "club": {
+      "logo": "https://images.vexels.com/media/users/3/152592/isolated/preview/96d97eadc822aafbc7062c6646da0c47-logotipo-da-equipe-de-futebol-de-portugal-by-vexels.png",
+      "name": "Portugalia"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Łukasz Przecherka",
+    "psn": "przecher7",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c5744984866aeb1125151"
+    },
+    "club": {
+      "logo": "https://www.logofootball.net/wp-content/uploads/tottenham-hotspur-fc-logo.png",
+      "name": "Tottenham Hotspur"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Luk Pop",
+    "psn": "papik1990",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c575c984866aeb1125152"
+    },
+    "club": {
+      "logo": "https://i.pinimg.com/originals/a3/2d/26/a32d2675b8e8f7158073d66c38bb60c7.jpg",
+      "name": "Holandia"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Michael Żółtowski",
+    "psn": "jajo_jr",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c5790984866aeb1125153"
+    },
+    "club": {
+      "logo": "https://i2.wp.com/studionaklejek.pl/wp-content/uploads/2018/05/juve.png?fit=573%2C573&ssl=1",
+      "name": "Piemonte Calcio"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Ryszard Todt",
+    "psn": "rajchard",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c579c984866aeb1125154"
+    },
+    "club": {
+      "logo": "https://i2.wp.com/studionaklejek.pl/wp-content/uploads/2018/05/juve.png?fit=573%2C573&ssl=1",
+      "name": "Piemonte Calcio"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Mateusz Kuska",
+    "psn": "mateusz_1989",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c57c8984866aeb1125155"
+    },
+    "club": {
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/Real_Madrid_CF.svg/260px-Real_Madrid_CF.svg.png",
+      "name": "Real Madryt"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Artur Sikorski",
+    "psn": "sikur30",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c57ec984866aeb1125156"
+    },
+    "club": {
+      "logo": "https://9.allegroimg.com/s512/033227/57ccf893443082017107bbe97139/NAKLEJKA-NA-SCIANE-PSG-PARIS-SAINT-GERMAIN-100-CM",
+      "name": "PSG"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Kamil Karkowski",
+    "psn": "eRwinekk",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c5800984866aeb1125157"
+    },
+    "club": {
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/f/f4/Atletico_Madrid_2017_logo.svg/1200px-Atletico_Madrid_2017_logo.svg.png",
+      "name": "Atletico Madryt"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Paweł Kroker",
+    "psn": "koroo_86",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c5855984866aeb1125158"
+    },
+    "club": {
+      "logo": "https://brandingmonitor.pl/wp-content/uploads/2015/12/nowe-logo-manchester-city.png",
+      "name": "Manchester City"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Krzysztof Dudek",
+    "psn": "DudiLFC",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c5866984866aeb1125159"
+    },
+    "club": {
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg/1024px-Logo_FC_Bayern_M%C3%BCnchen_%282002%E2%80%932017%29.svg.png",
+      "name": "Bayern Monachium"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Przemysław Masiewicz",
+    "psn": "masiu_allein",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c588d984866aeb112515a"
+    },
+    "club": {
+      "logo": "https://upload.wikimedia.org/wikipedia/hif/f/ff/Manchester_United_FC_crest.png",
+      "name": "Manchester United"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Mariusz Mariusz",
+    "psn": "camor111",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c58eb984866aeb112515b"
+    },
+    "club": {
+      "logo": "https://www.euro-mistrzostwa.com/images/herby/hiszpania.png",
+      "name": "Hiszpania"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Bartek Jedynak",
+    "psn": "Bartek182_POL",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c590d984866aeb112515c"
+    },
+    "club": {
+      "logo": "https://cdn1.thumbs.common.smcloud.net/common/1/0/s/1052199DN5b.jpg/ru-1-r-600,0-n-1052199DN5b.jpg",
+      "name": "Belgia"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Kasper Szymała",
+    "psn": "Kapi2011Kato",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c594e984866aeb112515d"
+    },
+    "club": {
+      "logo": "https://vignette.wikia.nocookie.net/kibice/images/b/bf/800px-Liverpool_FC.svg.png/revision/latest/scale-to-width-down/340?cb=20190816191939&path-prefix=pl",
+      "name": "Liverpool FC"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Tomasz Todt",
+    "psn": "Todziu92",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c5955984866aeb112515e"
+    },
+    "club": {
+      "logo": "https://cdn1.thumbs.common.smcloud.net/common/1/0/s/1052579P6me.jpg/ru-1-r-600,0-n-1052579P6me.jpg",
+      "name": "Francja"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Rafik Adi",
+    "psn": "RafikAdi01",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c5979984866aeb112515f"
+    },
+    "club": {
+      "logo": "https://cdn1.thumbs.common.smcloud.net/common/1/0/s/1052199DN5b.jpg/ru-1-r-600,0-n-1052199DN5b.jpg",
+      "name": "Belgia"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Lukasz Weglinski",
+    "psn": "luka_carbone",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c5997984866aeb1125160"
+    },
+    "club": {
+      "logo": "https://brandingmonitor.pl/wp-content/uploads/2015/12/nowe-logo-manchester-city.png",
+      "name": "Manchester City"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Bartek Waśkiewicz",
+    "psn": "wasxinn",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c59c5984866aeb1125161"
+    },
+    "club": {
+      "logo": "https://upload.wikimedia.org/wikipedia/en/thumb/5/59/Bayer_04_Leverkusen_logo.svg/1200px-Bayer_04_Leverkusen_logo.svg.png",
+      "name": "Bayer Leverkusen"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Krzysztof Szymała",
+    "psn": "CASPEREMIC_2020",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7c59d0984866aeb1125162"
+    },
+    "club": {
+      "logo": "https://0.allegroimg.com/s512/033112/e78871c74a04ad7e5d206f10cbe0/NAKLEJKA-NA-SCIANE-FC-BARCELONA-BARCA-MESSI-100-CM",
+      "name": "FC Barcelona"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Dawid Jasiński",
+    "psn": "Dejwid13",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  },
+  {
+    "_id": {
+      "$oid": "5e7cf698a82d37398ff75654"
+    },
+    "club": {
+      "logo": "https://i.pinimg.com/originals/f6/e8/f0/f6e8f053b3cfc2ada2b559eeddc33e7f.png",
+      "name": "Niemcy"
+    },
+    "stats": {
+      "points": {
+        "$numberInt": "0"
+      },
+      "matches_count": {
+        "$numberInt": "0"
+      }
+    },
+    "name": "Arkadiusz Wójcik",
+    "psn": "Hanys1988",
+    "__v": {
+      "$numberInt": "0"
+    },
+    "goals_conceded": {
+      "$numberInt": "0"
+    },
+    "goals_scored": {
+      "$numberInt": "0"
+    },
+    "matches_count": {
+      "$numberInt": "0"
+    },
+    "points": {
+      "$numberInt": "0"
+    },
+    "draws": {
+      "$numberInt": "0"
+    },
+    "loses": {
+      "$numberInt": "0"
+    },
+    "wins": {
+      "$numberInt": "0"
+    }
+  }
+]

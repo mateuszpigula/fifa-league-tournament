@@ -15,6 +15,10 @@
 	padding-bottom: 0.75em;
 	margin-bottom: 0.75em;
 	border-bottom: 1px #4d555d solid;
+
+	a {
+		color: inherit;
+	}
 }
 
 .active {
@@ -23,4 +27,21 @@
 
 a {
 	color: inherit;
+}
+
+.resultIcon {
+	background: green;
+	width: 20px;
+	height: 20px;
+	text-align: center;
+	line-height: 20px;
+	border-radius: 3px;
+	font-size: 12px;
+}
+.lose {
+	background: #af0505;
+}
+
+.draw {
+	background: #d27d00;
 }

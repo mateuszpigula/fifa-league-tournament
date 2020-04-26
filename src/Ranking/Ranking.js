@@ -31,7 +31,7 @@ export const Ranking = ({ players }) => {
 									{player.name}
 								</Link>
 							</td>
-							<td>
+							<td className={styles.logoBackground}>
 								<img className={styles.logo} src={player.club.logo} alt={player.club.name} title={player.club.name} />
 							</td>
 							<td>{player.matches_count}</td>

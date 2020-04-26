@@ -11,25 +11,13 @@ const matchSchema = new mongoose.Schema({
 		type: String,
 		required: [true, "Player1 field is required"],
 	},
-	match1: {
-		home: {
-			type: Number,
-			required: [true, "Home score in match1 field is required"],
-		},
-		away: {
-			type: Number,
-			required: [true, "Home score in match1 field is required"],
-		},
+	home: {
+		type: Number,
+		required: [true, "Home score field is required"],
 	},
-	match2: {
-		home: {
-			type: Number,
-			required: [true, "Home score in match2 field is required"],
-		},
-		away: {
-			type: Number,
-			required: [true, "Home score in match2 field is required"],
-		},
+	away: {
+		type: Number,
+		required: [true, "Away score field is required"],
 	},
 });
 

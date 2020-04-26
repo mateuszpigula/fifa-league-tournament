@@ -1,41 +1,22 @@
-import React, { useState, useContext } from "react";
-import Select from "react-select";
+import React, { useState, useContext, useRef } from "react";
+import { Link } from "react-router-dom";
 
 import { postAPI } from "api";
 import { Button, Form, Col } from "shared";
-import { handleChange as handleInputChange } from "utils/handlers";
 import { LoginContext } from "contexts";
 
 import styles from "./AddResult.module.scss";
 
 const properScore = (score) => score >= 0;
 const isProperResult = (result) => {
-	const { player1, player2, match1, match2 } = result;
-	return !!(
-		player1 &&
-		player2 &&
-		properScore(match1.home) &&
-		properScore(match1.away) &&
-		properScore(match2.home) &&
-		properScore(match2.away)
-	);
+	const { player1, player2, home, away } = result;
+	return !!(player1 && player2 && properScore(home) && properScore(away));
 };
 
 export const AddResult = ({ players }) => {
+	const inputEl = useRef(null);
 	const [isLoggedIn] = useContext(LoginContext);
 	const [textStream, setTextStream] = useState("");
-	const [result, setResult] = useState({
-		player1: "",
-		player2: "",
-		match1: {
-			home: null,
-			away: null,
-		},
-		match2: {
-			home: null,
-			away: null,
-		},
-	});
 
 	const handleAddResult = () => {
 		const getTextStreamElems = () => {
@@ -45,14 +26,13 @@ export const AddResult = ({ players }) => {
 					.map((match) => {
 						const elems = match.split(" ");
 
-						if (elems.length < 8) {
+						if (elems.length < 6) {
 							return null;
 						}
 
 						const player1 = elems.slice(0, 2).join(" ");
 						const player2 = elems.slice(3, 5).join(" ");
-						const match1 = elems.slice(5, 6)[0].split(":");
-						const match2 = elems.slice(7, 8)[0].split(":");
+						const result = elems.slice(5, 6)[0].split(":");
 
 						const p1 = players.find((pl) => pl.name === player1);
 						const p2 = players.find((pl) => pl.name === player2);
@@ -71,14 +51,8 @@ export const AddResult = ({ players }) => {
 						const body = {
 							player1: player1_psn,
 							player2: player2_psn,
-							match1: {
-								home: +match1[0],
-								away: +match1[1],
-							},
-							match2: {
-								home: +match2[0],
-								away: +match2[1],
-							},
+							home: +result[0],
+							away: +result[1],
 						};
 
 						return body;
@@ -103,21 +77,22 @@ export const AddResult = ({ players }) => {
 		}
 	};
 
-	const handleChange = (e) => {
-		handleInputChange(e, setResult);
-	};
-
 	const handleTextStreamChange = (e) => {
 		setTextStream(e.target.value);
 	};
 
-	const handlePlayerChange = (val, e) => {
-		setResult((prevState) => ({ ...prevState, [e.name]: val.value }));
+	const handleNameClick = (e) => {
+		const lastFourChars = textStream.slice(-4);
+		if (lastFourChars === "") {
+			setTextStream(`${e.target.textContent} vs `);
+		} else if (lastFourChars.includes("vs")) {
+			setTextStream(`${textStream}${e.target.textContent} `);
+		} else if (lastFourChars.includes(":")) {
+			setTextStream(`${textStream}\n${e.target.textContent} vs `);
+		}
+
+		inputEl.current.focus();
 	};
-	const options = players.map((player) => ({
-		value: player.psn,
-		label: player.name,
-	}));
 
 	if (!isLoggedIn) {
 		return <h1>Nie jesteś zalogowany!</h1>;
@@ -127,61 +102,17 @@ export const AddResult = ({ players }) => {
 		<>
 			<Form className={styles.form}>
 				<Form.Group>
-					<Form.Row>
-						<Col>
-							<Form.Label>Gracz 1:</Form.Label>
-							<Select
-								name="player1"
-								options={options.filter((p) => p.value !== result.player2)}
-								onChange={handlePlayerChange}
-							/>
-						</Col>
-						<Col>
-							<Form.Label>Gracz 2:</Form.Label>
-							<Select
-								name="player2"
-								options={options.filter((p) => p.value !== result.player1)}
-								onChange={handlePlayerChange}
-							/>
-						</Col>
-					</Form.Row>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Row className={styles["form-row"]}>
-						<Col md="auto">Mecz 1:</Col>
-						<Col xs lg="auto">
-							<Form.Label>{result.player1}</Form.Label>
-							<Form.Control name="match1.home" type="number" onChange={handleChange} />
-						</Col>
-						<span>-</span>
-						<Col xs lg="auto">
-							<Form.Label>{result.player2}</Form.Label>
-							<Form.Control name="match1.away" type="number" onChange={handleChange} />
-						</Col>
-					</Form.Row>
-				</Form.Group>
-
-				<Form.Group>
-					<Form.Row className={styles["form-row"]}>
-						<Col md="auto">Rewanż:</Col>
-						<Col xs lg="auto">
-							<Form.Label>{result.player1}</Form.Label>
-							<Form.Control name="match2.home" type="number" onChange={handleChange} />
-						</Col>
-						<span>-</span>
-						<Col xs lg="auto">
-							<Form.Label>{result.player2}</Form.Label>
-							<Form.Control name="match2.away" type="number" onChange={handleChange} />
-						</Col>
-					</Form.Row>
-				</Form.Group>
-
-				<Form.Group>
 					<Form.Row className={styles["form-row"]}>
 						<Col md="auto">Wynik tekstowy:</Col>
 						<Col xs="9">
-							<Form.Control as="textarea" rows="3" name="textStream" onChange={handleTextStreamChange} />
+							<Form.Control
+								as="textarea"
+								rows="3"
+								name="textStream"
+								value={textStream}
+								onChange={handleTextStreamChange}
+								ref={inputEl}
+							/>
 						</Col>
 					</Form.Row>
 				</Form.Group>
@@ -197,7 +128,11 @@ export const AddResult = ({ players }) => {
 			<ul>
 				{players.map((player) => (
 					<li style={{ color: "white" }} key={player.psn}>
-						{player.psn} - {player.name}
+						<Link to={`/${player.psn}`}>{player.psn}</Link>
+						<span> - </span>
+						<span className={styles.name} onClick={handleNameClick}>
+							{player.name}
+						</span>
 					</li>
 				))}
 			</ul>
